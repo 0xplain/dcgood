@@ -4,6 +4,10 @@ const client = new Client({
   checkUpdate: false
 });
 
+process.on("uncaughtException", (err) => {
+  console.log("Ignored error:", err.message);
+});
+
 client.on("ready", async () => {
   console.log(`${client.user.username} online`);
 
@@ -12,12 +16,13 @@ client.on("ready", async () => {
 
     client.voice.joinChannel(channel, {
       selfMute: true,
-      selfDeaf: true
+      selfDeaf: true,
+      selfVideo: false
     });
 
     console.log("Joined voice channel");
   } catch (err) {
-    console.log(err);
+    console.log("VC Error:", err.message);
   }
 });
 
