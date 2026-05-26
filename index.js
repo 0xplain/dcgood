@@ -12,7 +12,7 @@ client.on("ready", async () => {
   console.log(`${client.user.username} online`);
 
   try {
-    const channel = await client.channels.fetch("1508036708724248669");
+    const channel = await client.channels.fetch("563674347990941717");
 
     client.voice.joinChannel(channel, {
       selfMute: true,
